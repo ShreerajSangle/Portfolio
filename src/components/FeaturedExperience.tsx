@@ -8,7 +8,7 @@ export function FeaturedExperience() {
     <section id="experience" className="border-t border-line py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
-          <p className="font-mono text-label font-semibold uppercase text-gray-light">// 02 / Experience</p>
+          <p className="font-mono text-label font-semibold uppercase text-orange">// 02 / Experience</p>
           <h2 className="font-display text-h2 mt-3 text-balance font-bold">
             Grounded in real internship work.
           </h2>
@@ -36,7 +36,7 @@ export function FeaturedExperience() {
                 <ul className="mt-4 space-y-3">
                   {e.bullets.map((b) => (
                     <li key={b} className="flex items-start gap-3 text-body leading-relaxed text-gray-light">
-                      <span aria-hidden className="font-mono mt-0.5 shrink-0 text-sm font-bold text-gray-light">
+                      <span aria-hidden className="font-mono mt-0.5 shrink-0 text-sm font-bold text-orange">
                         &gt;
                       </span>
                       {b}

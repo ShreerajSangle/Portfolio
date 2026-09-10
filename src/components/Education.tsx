@@ -6,7 +6,7 @@ export function Education() {
     <section id="education" className="border-t border-line py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
-          <p className="font-mono text-label font-semibold uppercase text-gray-light">// 05 / Education</p>
+          <p className="font-mono text-label font-semibold uppercase text-orange">// 05 / Education</p>
           <h2 className="font-display text-h2 mt-3 text-balance font-bold">
             Where the toolkit came from.
           </h2>

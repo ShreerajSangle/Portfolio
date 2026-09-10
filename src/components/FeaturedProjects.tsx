@@ -9,7 +9,7 @@ export function FeaturedProjects() {
     <section id="projects" className="border-t border-line py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
-          <p className="font-mono text-label font-semibold uppercase text-gray-light">// 04 / Selected work</p>
+          <p className="font-mono text-label font-semibold uppercase text-orange">// 04 / Selected work</p>
           <h2 className="font-display text-h2 mt-3 text-balance font-bold">
             A few projects worth a closer look.
           </h2>

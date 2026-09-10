@@ -12,7 +12,7 @@ export function Skills() {
           className="rounded-[2rem] border border-white/10 bg-surface p-6 sm:p-10"
         >
           <div className="max-w-2xl">
-            <p className="font-mono text-label font-semibold uppercase text-gray-light">// 03 / Skills</p>
+            <p className="font-mono text-label font-semibold uppercase text-orange">// 03 / Skills</p>
             <h2 className="font-display text-h2 mt-3 text-balance font-bold">
               A toolkit spanning AI, full-stack, and data.
             </h2>

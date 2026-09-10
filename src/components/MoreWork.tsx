@@ -10,7 +10,7 @@ export function MoreWork() {
   return (
     <section className="border-t border-line py-16">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <p className="font-mono text-label mb-8 font-semibold uppercase text-gray">More work</p>
+        <p className="font-mono text-label mb-8 font-semibold uppercase text-orange">More work</p>
         <div className="grid gap-4 sm:grid-cols-2">
           {rest.map((p, i) => (
             <Reveal key={p.slug} delay={i * 60}>

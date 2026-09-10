@@ -7,7 +7,7 @@ export function About() {
     <section id="about" className="border-t border-line py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal>
-          <p className="font-mono text-label font-semibold uppercase text-gray-light">// 01 / About</p>
+          <p className="font-mono text-label font-semibold uppercase text-orange">// 01 / About</p>
           <h2 className="font-display text-h2 mt-3 max-w-2xl text-balance font-bold">
             Design with purpose, build with rigor.
           </h2>
