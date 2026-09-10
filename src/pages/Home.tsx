@@ -1,9 +1,10 @@
 import { About } from "../components/About";
 import { Contact } from "../components/Contact";
 import { Education } from "../components/Education";
-import { Experience } from "../components/Experience";
+import { FeaturedExperience } from "../components/FeaturedExperience";
 import { FeaturedProjects } from "../components/FeaturedProjects";
 import { Hero } from "../components/Hero";
+import { MoreExperience } from "../components/MoreExperience";
 import { MoreWork } from "../components/MoreWork";
 import { Skills } from "../components/Skills";
 import { useScrollToHash } from "../hooks/useScrollToHash";
@@ -15,7 +16,8 @@ export function Home() {
     <>
       <Hero />
       <About />
-      <Experience />
+      <FeaturedExperience />
+      <MoreExperience />
       <Skills />
       <FeaturedProjects />
       <MoreWork />

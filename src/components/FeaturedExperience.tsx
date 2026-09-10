@@ -1,32 +1,33 @@
 import { experience } from "../data/profile";
 import { Reveal } from "./Reveal";
 
-export function Experience() {
+const internships = experience.filter((e) => e.role.toLowerCase().includes("intern"));
+
+export function FeaturedExperience() {
   return (
     <section id="experience" className="border-t border-line py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange">Experience</p>
           <h2 className="font-display mt-3 text-balance text-3xl font-bold leading-tight tracking-[-0.01em] sm:text-4xl">
-            Grounded in real operational work, not just theory.
+            Grounded in real internship work.
           </h2>
         </Reveal>
 
-        <div className="mt-14 space-y-10">
-          {experience.map((e, i) => (
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {internships.map((e, i) => (
             <Reveal
-              key={`${e.company}-${e.role}`}
-              delay={i * 40}
-              className="grid gap-4 border-b border-line pb-10 last:border-b-0 md:grid-cols-[220px_1fr]"
+              key={e.company}
+              delay={i * 60}
+              className="flex h-full flex-col rounded-3xl border border-line bg-surface p-6"
             >
-              <div>
-                <h3 className="font-display font-semibold text-paper">{e.company}</h3>
-                <p className="text-sm text-orange">{e.role}</p>
-                <p className="mt-1 text-sm text-gray">
-                  {e.location} · {e.period}
-                </p>
-              </div>
-              <ul className="space-y-2">
+              <span className="font-display text-sm font-bold text-orange">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="font-display mt-3 text-lg font-bold text-paper">{e.company}</h3>
+              <p className="mt-1 text-sm text-orange">{e.role}</p>
+              <p className="mt-1 text-xs text-gray">
+                {e.location} · {e.period}
+              </p>
+              <ul className="mt-4 space-y-2.5">
                 {e.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-2 text-sm leading-relaxed text-gray-light">
                     <span aria-hidden className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-orange" />
