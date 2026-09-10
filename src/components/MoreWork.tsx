@@ -8,30 +8,33 @@ export function MoreWork() {
   if (rest.length === 0) return null;
 
   return (
-    <Reveal as="div" className="border-t border-line py-14">
+    <section className="border-t border-line py-16">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <p className="font-mono text-label mb-6 font-semibold uppercase text-gray">More work</p>
-        <ul className="divide-y divide-line">
-          {rest.map((p) => (
-            <li key={p.slug}>
+        <p className="font-mono text-label mb-8 font-semibold uppercase text-gray">More work</p>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {rest.map((p, i) => (
+            <Reveal key={p.slug} delay={i * 60}>
               <Link
                 to={`/projects/${p.slug}`}
-                className="press group flex items-center justify-between gap-4 py-4"
+                className="press group flex h-full items-center justify-between gap-4 rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-orange/40"
               >
-                <span>
-                  <span className="font-display font-semibold text-paper transition-colors group-hover:text-orange">
+                <span className="min-w-0">
+                  <span className="font-display block font-semibold text-paper transition-colors group-hover:text-orange">
                     {p.title}
                   </span>
-                  <span className="ml-3 text-sm text-gray-light">{p.subtitle}</span>
+                  <span className="font-mono text-label mt-1.5 block text-gray-light">{p.subtitle}</span>
                 </span>
-                <span aria-hidden className="text-gray-light transition-colors group-hover:text-orange">
+                <span
+                  aria-hidden
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-gray-light transition-colors group-hover:border-orange group-hover:text-orange"
+                >
                   →
                 </span>
               </Link>
-            </li>
+            </Reveal>
           ))}
-        </ul>
+        </div>
       </div>
-    </Reveal>
+    </section>
   );
 }
