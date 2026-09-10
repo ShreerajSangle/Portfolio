@@ -9,7 +9,7 @@ export function FeaturedProjects() {
     <section id="projects" className="border-t border-line py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
-          <p className="font-mono text-label font-semibold uppercase text-orange">// 04 / Selected work</p>
+          <p className="font-mono text-label font-semibold uppercase text-gray-light">// 04 / Selected work</p>
           <h2 className="font-display text-h2 mt-3 text-balance font-bold">
             A few projects worth a closer look.
           </h2>
@@ -22,16 +22,25 @@ export function FeaturedProjects() {
                 to={`/projects/${p.slug}`}
                 className="press group flex h-full flex-col overflow-hidden rounded-3xl border border-line shadow-[0_0_0_rgba(0,0,0,0)] transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1.5 hover:border-orange/40 hover:shadow-[0_24px_40px_-20px_rgba(0,0,0,0.7)]"
               >
-                <div className={`relative flex min-h-[160px] flex-col justify-between bg-gradient-to-br p-6 ${p.gradient}`}>
-                  <span className="font-mono text-sm font-bold text-white/70">{p.number}</span>
-                  <h3 className="font-display text-h3 font-bold text-white">{p.title}</h3>
+                <div className={`relative flex min-h-[160px] flex-col justify-between overflow-hidden bg-gradient-to-br p-6 ${p.gradient}`}>
+                  {p.image && (
+                    <img
+                      src={p.image}
+                      alt=""
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover opacity-40"
+                    />
+                  )}
+                  <span className="relative font-mono text-sm font-bold text-white/70">{p.number}</span>
+                  <h3 className="relative font-display text-h3 font-bold text-white">{p.title}</h3>
                 </div>
 
                 <div className="flex flex-1 flex-col gap-1 bg-surface p-6">
                   <p className="text-body leading-relaxed text-gray-light">{p.oneLiner}</p>
 
-                  {/* Secondary info layer — revealed on hover/focus rather than shown by default */}
-                  <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-hover:grid-rows-[1fr] group-focus-visible:grid-rows-[1fr]">
+                  {/* Secondary info layer — always visible on mobile/tablet where there's no
+                      hover state to reveal it; hover/focus-revealed only at md: and above. */}
+                  <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] md:group-focus-visible:grid-rows-[1fr]">
                     <div className="overflow-hidden">
                       <ul className="font-mono text-label flex flex-wrap gap-1.5 pt-3">
                         {p.tech.map((t) => (

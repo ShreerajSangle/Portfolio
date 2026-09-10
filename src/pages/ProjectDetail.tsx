@@ -1,14 +1,21 @@
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { projects } from "../data/profile";
 import { Reveal } from "../components/Reveal";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
+import { NotFound } from "./NotFound";
 
 export function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const index = projects.findIndex((p) => p.slug === slug);
+  const project = index === -1 ? null : projects[index];
 
-  if (index === -1) return <Navigate to="/" replace />;
+  useDocumentMeta(
+    project ? `${project.title} — Shreeraj Sangle` : "Project not found — Shreeraj Sangle",
+    project ? project.oneLiner : "This project page couldn't be found.",
+  );
 
-  const project = projects[index];
+  if (!project) return <NotFound />;
+
   const next = projects[(index + 1) % projects.length];
 
   return (
@@ -31,6 +38,19 @@ export function ProjectDetail() {
         </div>
       </div>
 
+      {project.image && (
+        <div className="mx-auto max-w-6xl px-5 pt-10 sm:px-8">
+          <Reveal>
+            <img
+              src={project.image}
+              alt={`${project.title} — screenshot`}
+              loading="lazy"
+              className="w-full rounded-2xl border border-line"
+            />
+          </Reveal>
+        </div>
+      )}
+
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-[1fr_320px]">
           <Reveal className="measure space-y-6">
@@ -42,7 +62,7 @@ export function ProjectDetail() {
                 <ul className="space-y-2">
                   {project.results.map((r) => (
                     <li key={r} className="text-body flex items-start gap-2 text-paper">
-                      <span aria-hidden className="mt-2 h-1 w-1 shrink-0 rounded-full bg-orange" />
+                      <span aria-hidden className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gray-light" />
                       {r}
                     </li>
                   ))}

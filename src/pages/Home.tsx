@@ -8,10 +8,15 @@ import { MoreExperience } from "../components/MoreExperience";
 import { MoreWork } from "../components/MoreWork";
 import { QuickFacts } from "../components/QuickFacts";
 import { Skills } from "../components/Skills";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { useScrollToHash } from "../hooks/useScrollToHash";
 
 export function Home() {
   useScrollToHash();
+  useDocumentMeta(
+    "Shreeraj Sangle — AI & Full-Stack Product Builder",
+    "Shreeraj Sangle — MSc AI graduate and full-stack product builder working across machine learning, data analytics, and web engineering. Portfolio of AI systems, full-stack apps, and forecasting projects.",
+  );
 
   return (
     <>

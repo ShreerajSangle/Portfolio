@@ -103,6 +103,11 @@ export type Project = {
   headlineMetric?: string;
   /** Full case-study description, shown only on the project detail page. */
   description: string;
+  /** Optional real screenshot/mockup — path under public/, e.g. "/projects/job-tracker.png".
+   * Falls back to the gradient banner when unset. Add real product images here
+   * as they become available; nothing here should ever be a placeholder or
+   * a fabricated screenshot. */
+  image?: string;
   results?: string[];
   tech: string[];
   links?: { label: string; href: string }[];
@@ -117,7 +122,7 @@ export type Project = {
 export const accentGradients = [
   "from-[#1a0500] via-[#c10801] to-[#f16001]",
   "from-[#000000] via-[#4a1a00] to-[#e85002]",
-  "from-[#0a0a0a] via-[#5c2e00] to-[#d9c3ab]",
+  "from-[#0a0a0a] via-[#5c2e00] to-[#6b4526]",
   "from-[#000000] via-[#c10801] to-[#333333]",
   "from-[#050505] via-[#333333] to-[#646464]",
 ] as const;
@@ -135,7 +140,7 @@ export const projects: Project[] = [
     results: [
       "92.5% classification accuracy",
       "Sub-200ms inference latency",
-      "99%+ uptime with alerting & load-tested failover",
+      "Load-tested for reliability, with alerting on failure conditions",
     ],
     tech: ["FastAPI", "PostgreSQL", "Docker", "Multimodal ML"],
     gradient: "from-[#1a0500] via-[#c10801] to-[#f16001]",
@@ -223,7 +228,7 @@ export const projects: Project[] = [
       "Google OAuth / magic-link auth, direct-to-storage uploads",
     ],
     tech: ["React 19", "TanStack", "Supabase", "Appwrite", "Groq"],
-    gradient: "from-[#0a0a0a] via-[#5c2e00] to-[#d9c3ab]",
+    gradient: "from-[#0a0a0a] via-[#5c2e00] to-[#6b4526]",
     featured: false,
   },
   {

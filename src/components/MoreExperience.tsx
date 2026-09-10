@@ -27,7 +27,7 @@ export function MoreExperience() {
                 </span>
                 <div>
                   <h3 className="font-display font-semibold text-paper">{e.company}</h3>
-                  <p className="text-sm text-orange">{e.role}</p>
+                  <p className="text-sm text-gray-light">{e.role}</p>
                   <p className="font-mono text-label mt-1 text-gray">
                     {e.location} · {e.period}
                   </p>
@@ -37,7 +37,7 @@ export function MoreExperience() {
               <ul className="space-y-2 border-t border-line pt-5 md:border-t-0 md:border-l md:pl-8 md:pt-0">
                 {e.bullets.map((b) => (
                   <li key={b} className="text-body flex items-start gap-2 leading-relaxed text-gray-light">
-                    <span aria-hidden className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-orange" />
+                    <span aria-hidden className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gray-light" />
                     {b}
                   </li>
                 ))}

@@ -11,7 +11,7 @@ export function Hero() {
 
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal>
-          <p className="font-mono text-label font-semibold uppercase text-orange">
+          <p className="font-mono text-label font-semibold uppercase text-gray-light">
             {profile.location} · Open to Data/BI & AI/ML roles
           </p>
         </Reveal>

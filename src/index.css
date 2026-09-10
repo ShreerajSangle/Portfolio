@@ -25,7 +25,11 @@
   --color-orange-dim: #c10801;
   --color-cream: #d9c3ab;
   --color-paper: #f9f9f9;
-  --color-gray: #646464;
+  /* #646464 on #000 is ~3.56:1 — fails WCAG AA (4.5:1) for normal text.
+   * #8a8a8a clears ~6:1 while staying visually "muted" relative to
+   * --color-gray-light (~8.7:1), preserving the secondary/tertiary
+   * text hierarchy with both tiers passing AA. */
+  --color-gray: #8a8a8a;
   --color-gray-light: #a7a7a7;
   --color-gray-dark: #333333;
 
@@ -59,6 +63,13 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* The header is fixed and sits on top of the page — without this, every
+ * anchor-nav jump (nav links, Hero CTAs, useScrollToHash) lands with the
+ * section heading hidden underneath it. */
+section {
+  scroll-margin-top: 5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

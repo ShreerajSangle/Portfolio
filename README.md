@@ -14,28 +14,30 @@ Personal portfolio site for Shreeraj Sangle (AI & Full-Stack Product Builder), b
 
 The homepage is intentionally minimal — a skim path, not a full inventory:
 
-- **Hero** — one-line positioning, no stat tiles
-- **Featured projects** (3 of 5) — compact cards with a one-line outcome and a headline metric, linking to a full case-study page at `/projects/:slug`
-- **More work** — the remaining 2 projects as a plain linked list, same case-study depth one click away
-- **About** — a short bio; "What I can help with" expands on click
-- **Experience** — kept fully expanded (résumé-critical, always visible)
-- **Skills & Education** — collapsed-by-default accordion, expand any category/degree for the full detail
+- **Hero** — one-line positioning plus a CTA row; **QuickFacts** right below it surfaces a few headline numbers
+- **Featured projects** (3 of 6) — compact cards with a one-line outcome and a headline metric, linking to a full case-study page at `/projects/:slug`
+- **More work** — the remaining 3 projects as a linked card grid, same case-study depth one click away
+- **About** — a short bio; "What I can help with" expands on click (the one place that uses the `Disclosure` component)
+- **Experience** — the 3 internships get full gradient cards (résumé-critical, always visible); **More experience** holds the rest in lighter bordered cards
+- **Skills & Education** — both render fully expanded as card grids, not collapsed — dedicated visual treatment rather than hidden behind a click
 
-Nothing was removed — dense content (full project descriptions, the complete skills matrix, education coursework) still exists, just behind a click instead of forced into the initial scroll. See `src/data/profile.ts` for the full data model (`Project.featured` controls the homepage/More-work split).
+Nothing is hidden without a path to it — dense content (full project descriptions, tech stacks, coursework) either sits directly on the page or is one click away via a project's case-study page. See `src/data/profile.ts` for the full data model (`Project.featured` controls the homepage/More-work split, `role.includes("Intern")` controls the Experience split).
 
 ## Project structure
 
 ```
 src/
-  components/   Nav, Hero, FeaturedProjects, MoreWork, About, Experience, SkillsEducation,
-                Contact, Footer, Disclosure (expand/collapse), Reveal (scroll-in), ScrollToTop
-  pages/        Home.tsx, ProjectDetail.tsx — routed via React Router
+  components/   Nav, Hero, QuickFacts, About, FeaturedExperience, MoreExperience, Skills,
+                FeaturedProjects, MoreWork, Education, Contact, Footer,
+                Disclosure (expand/collapse), Reveal (scroll-in), ScrollToTop
+  pages/        Home.tsx, ProjectDetail.tsx, NotFound.tsx — routed via React Router
   data/         profile.ts — all site content in one place
-  hooks/        useReveal.ts (scroll-reveal), useScrollToHash.ts (cross-page section links)
-  index.css     Tailwind entry + design tokens (colors, fonts, animations)
-  App.tsx       router setup + persistent Nav/Footer
+  hooks/        useReveal.ts (scroll-reveal), useScrollToHash.ts (cross-page section links),
+                useDocumentMeta.ts (per-route title/description)
+  index.css     Tailwind entry + design tokens (colors, fonts, animations, typography scale)
+  App.tsx       router setup + persistent Nav/Footer, mobile-menu inert handling
 public/
-  favicon.svg
+  favicon.svg, og-image.png
   404.html, spa-redirect.js   GitHub Pages SPA fallback for direct /projects/:slug links
 .github/workflows/deploy-pages.yml   GitHub Pages deployment
 vercel.json                          Vercel deployment config

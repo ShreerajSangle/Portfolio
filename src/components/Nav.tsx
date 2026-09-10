@@ -10,9 +10,13 @@ const LINKS = [
   { hash: "#contact", label: "Contact" },
 ];
 
-export function Nav() {
+type NavProps = {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+};
+
+export function Nav({ open, onOpenChange }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -23,10 +27,29 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock background scroll and allow Escape to close while the mobile
+  // menu is open — the rest of the page is also made `inert` by App.tsx.
+  useEffect(() => {
+    if (!open) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") onOpenChange(false);
+    }
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open, onOpenChange]);
+
   function goToSection(hash: string) {
     return (e: React.MouseEvent) => {
       e.preventDefault();
-      setOpen(false);
+      onOpenChange(false);
       if (location.pathname === "/") {
         document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: "smooth", block: "start" });
         window.history.pushState(null, "", hash);
@@ -70,7 +93,7 @@ export function Nav() {
           type="button"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => onOpenChange(!open)}
           className="press flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden"
         >
           <span
@@ -83,6 +106,7 @@ export function Nav() {
       </nav>
 
       <div
+        inert={!open || undefined}
         className={`fixed inset-x-0 top-[57px] bottom-0 overflow-y-auto bg-black transition-opacity duration-300 md:hidden ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
@@ -102,7 +126,7 @@ export function Nav() {
           <li className="pt-2">
             <a
               href={`mailto:${profile.email}`}
-              onClick={() => setOpen(false)}
+              onClick={() => onOpenChange(false)}
               className="press inline-flex w-full items-center justify-center rounded-full bg-orange px-5 py-2.5 text-sm font-semibold text-black"
             >
               Get in touch

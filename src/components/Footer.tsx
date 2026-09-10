@@ -1,8 +1,17 @@
-import { profile } from "../data/profile";
+import { interests, profile } from "../data/profile";
 
-export function Footer() {
+type FooterProps = {
+  inert?: boolean;
+};
+
+export function Footer({ inert }: FooterProps) {
   return (
-    <footer className="border-t border-line py-8">
+    <footer className="border-t border-line py-8" inert={inert || undefined}>
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        <p className="font-mono text-label mb-6 border-b border-line pb-6 text-center text-gray-light sm:text-left">
+          Also into: {interests.join(" · ")}
+        </p>
+      </div>
       <div className="font-mono text-label mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 text-gray sm:flex-row sm:px-8">
         <p>© {new Date().getFullYear()} {profile.name}. All rights reserved.</p>
         <div className="flex items-center gap-6">
