@@ -63,22 +63,6 @@ export const education = [
     ],
   },
   {
-    school: "Hofstra University",
-    location: "USA",
-    degree: "Postgraduate — Business Analytics",
-    period: "",
-    detail:
-      "Second postgraduate degree, focused on business analytics, forecasting, and quantitative decision-making.",
-    coursework: [
-      "Data Analytics",
-      "Forecasting",
-      "Business Strategy",
-      "Management Science",
-      "Quantitative Analysis",
-      "Database Management",
-    ],
-  },
-  {
     school: "University of Mumbai",
     location: "India",
     degree: "BE Electronics & Computer Science",
