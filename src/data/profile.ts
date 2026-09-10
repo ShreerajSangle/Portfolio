@@ -101,6 +101,17 @@ export type Project = {
   featured: boolean;
 };
 
+/** Shared gradient family — reused by Skills and Experience so every
+ * "dedicated card" section across the site draws from the same palette
+ * Projects uses, instead of introducing new colors per section. */
+export const accentGradients = [
+  "from-[#1a0500] via-[#c10801] to-[#f16001]",
+  "from-[#000000] via-[#4a1a00] to-[#e85002]",
+  "from-[#0a0a0a] via-[#5c2e00] to-[#d9c3ab]",
+  "from-[#000000] via-[#c10801] to-[#333333]",
+  "from-[#050505] via-[#333333] to-[#646464]",
+] as const;
+
 export const projects: Project[] = [
   {
     slug: "mental-health-assistant",
@@ -239,10 +250,12 @@ export const experience: ExperienceItem[] = [
     role: "Data Analyst (Intern)",
     period: "Jan 2024 – Jun 2024",
     bullets: [
-      "Pulled and consolidated records from CRM systems and offline sources across BFSI, pharma, and retail client accounts, building a repeatable extraction process for recurring reporting cycles.",
-      "Used Power Query and Excel to standardise inconsistent field formats, deduplicate overlapping records, and reconcile mismatched entries across multiple source systems.",
-      "Built and maintained Power BI dashboards delivering management information (MI) to client stakeholders.",
-      "Worked hands-on with pharma (Apollo Hospital) and retail (Bonkers Corner) accounts — ETL, cleaning, extraction, and visualisation in Excel/Python/SQL.",
+      "Pulled and consolidated records from CRM systems and offline sources (spreadsheet exports, flat files) across BFSI, pharma, and retail client accounts, building a repeatable extraction process for recurring reporting cycles.",
+      "Used Power Query and Excel to standardise inconsistent field formats, deduplicate overlapping records, and reconcile mismatched entries across multiple source systems before reporting.",
+      "Built and maintained Power BI dashboards and reports delivering management information (MI) to client stakeholders, turning raw operational/transactional data into recurring, business-ready reporting packs.",
+      "Worked hands-on with the Apollo Hospital account (pharma/healthcare) — performed ETL, cleaning, extraction, and visualisation in Excel/Python/SQL on operational and reporting data; data/reporting work only, non-clinical, no involvement in healthcare decision-making.",
+      "Worked hands-on with the Bonkers Corner account (retail) — applied the same ETL/cleaning/visualisation workflow using Excel/Python/SQL to retail sales and operations data.",
+      "Queried and validated data using SQL, cross-checking source-to-report consistency before hand-off to catch discrepancies ahead of client-facing deadlines.",
     ],
   },
   {
@@ -251,10 +264,12 @@ export const experience: ExperienceItem[] = [
     role: "Software Developer (Intern)",
     period: "May 2023 – Oct 2023",
     bullets: [
-      "Built REST API endpoints using FastAPI to expose sensor data and application logic to the frontend and third-party integration partners.",
-      "Integrated a React frontend with backend APIs to surface industrial sensor data in a usable interface.",
-      "Handled third-party partner API integration — authentication, data-format mismatches, and integration testing.",
-      "Debugged and tested API endpoints across the sensor-to-application data pipeline.",
+      "Built REST API endpoints using FastAPI to expose sensor data and application logic to the frontend and to third-party integration partners.",
+      "Integrated a React frontend with backend APIs to surface industrial sensor data in a usable interface for internal and partner use.",
+      "Worked on industrial sensor integration — connecting hardware sensor data feeds into the software stack for downstream processing and display.",
+      "Handled third-party partner API integration, working through authentication, data-format mismatches, and integration testing to connect external systems.",
+      "Debugged and tested API endpoints and integration points across the sensor-to-application data pipeline.",
+      "Picked up FastAPI and an existing sensor-integration codebase quickly as an intern, contributing to a live, production-adjacent codebase within an industrial technology company.",
     ],
   },
   {

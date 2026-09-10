@@ -1,4 +1,4 @@
-import { experience } from "../data/profile";
+import { accentGradients, experience } from "../data/profile";
 import { Reveal } from "./Reveal";
 
 const internships = experience.filter((e) => e.role.toLowerCase().includes("intern"));
@@ -14,27 +14,36 @@ export function FeaturedExperience() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 space-y-6">
           {internships.map((e, i) => (
             <Reveal
               key={e.company}
               delay={i * 60}
-              className="flex h-full flex-col rounded-3xl border border-line bg-surface p-6"
+              className="grid overflow-hidden rounded-3xl border border-line md:grid-cols-[260px_1fr]"
             >
-              <span className="font-display text-sm font-bold text-orange">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="font-display mt-3 text-lg font-bold text-paper">{e.company}</h3>
-              <p className="mt-1 text-sm text-orange">{e.role}</p>
-              <p className="mt-1 text-xs text-gray">
-                {e.location} · {e.period}
-              </p>
-              <ul className="mt-4 space-y-2.5">
-                {e.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2 text-sm leading-relaxed text-gray-light">
-                    <span aria-hidden className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-orange" />
-                    {b}
-                  </li>
-                ))}
-              </ul>
+              <div
+                className={`flex flex-col justify-between gap-6 bg-gradient-to-br p-6 sm:p-8 ${accentGradients[i % accentGradients.length]}`}
+              >
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">{e.period}</p>
+                  <h3 className="font-display mt-3 text-2xl font-bold leading-tight text-white">{e.company}</h3>
+                </div>
+                <p className="text-sm text-white/70">{e.location}</p>
+              </div>
+
+              <div className="bg-surface p-6 sm:p-8">
+                <h4 className="font-display text-lg font-semibold text-paper">{e.role}</h4>
+                <ul className="mt-4 space-y-3">
+                  {e.bullets.map((b) => (
+                    <li key={b} className="flex items-start gap-3 text-sm leading-relaxed text-gray-light">
+                      <span aria-hidden className="mt-0.5 shrink-0 font-display text-sm font-bold text-orange">
+                        &gt;
+                      </span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Reveal>
           ))}
         </div>
