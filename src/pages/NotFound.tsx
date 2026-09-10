@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 
 export function NotFound() {
+  useDocumentMeta("Page not found — Shreeraj Sangle", "This page couldn't be found.");
+
   return (
     <section className="flex min-h-[70vh] flex-col items-center justify-center px-5 py-24 text-center">
       <p className="font-mono text-label font-semibold uppercase text-gray-light">404</p>

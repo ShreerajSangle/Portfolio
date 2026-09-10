@@ -46,6 +46,21 @@ export function Nav({ open, onOpenChange }: NavProps) {
     };
   }, [open, onOpenChange]);
 
+  // The menu, its toggle button, and the "main is inert" lock are all
+  // md:hidden/mobile-only. Without this, opening the menu then resizing (or
+  // rotating a tablet) past the md breakpoint strands the page: the toggle
+  // button disappears, main stays inert, and body scroll stays locked, with
+  // no visible way out.
+  useEffect(() => {
+    if (!open) return;
+    const query = window.matchMedia("(min-width: 768px)");
+    function onChange(e: MediaQueryListEvent) {
+      if (e.matches) onOpenChange(false);
+    }
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
+  }, [open, onOpenChange]);
+
   function goToSection(hash: string) {
     return (e: React.MouseEvent) => {
       e.preventDefault();
