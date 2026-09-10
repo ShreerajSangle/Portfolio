@@ -18,32 +18,26 @@ export function Skills() {
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 divide-y divide-white/10 overflow-hidden rounded-2xl border border-white/10 bg-surface-raised">
             {skillGroups.map((g, i) => (
-              <div
-                key={g.title}
-                className="overflow-hidden rounded-2xl border border-white/10 bg-surface-raised"
-              >
-                <div
-                  className={`flex h-16 items-center bg-gradient-to-br px-6 ${accentGradients[i % accentGradients.length]}`}
-                >
-                  <span className="font-mono text-sm font-bold text-white">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+              <div key={g.title} className="flex flex-col gap-4 p-6 sm:flex-row sm:gap-8 sm:p-7">
+                <div className="flex shrink-0 items-center gap-3 sm:w-56">
+                  <span
+                    aria-hidden
+                    className={`h-2 w-2 shrink-0 rounded-full bg-gradient-to-br ${accentGradients[i % accentGradients.length]}`}
+                  />
+                  <h3 className="font-display text-base font-semibold text-paper sm:text-lg">{g.title}</h3>
                 </div>
-                <div className="p-6 pt-5">
-                  <h3 className="font-display text-lg font-semibold">{g.title}</h3>
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {g.items.map((item) => (
-                      <li
-                        key={item}
-                        className="font-mono text-label rounded-full bg-white/5 px-3 py-1.5 text-gray-light"
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="flex flex-1 flex-wrap gap-2">
+                  {g.items.map((item) => (
+                    <li
+                      key={item}
+                      className="font-mono text-label rounded-full bg-white/5 px-3 py-1.5 text-gray-light"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
