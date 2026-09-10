@@ -20,16 +20,33 @@ export function FeaturedProjects() {
             <Reveal key={p.slug} delay={i * 60}>
               <Link
                 to={`/projects/${p.slug}`}
-                className="press group flex h-full flex-col overflow-hidden rounded-3xl border border-line transition-colors hover:border-orange/40"
+                className="press group flex h-full flex-col overflow-hidden rounded-3xl border border-line shadow-[0_0_0_rgba(0,0,0,0)] transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1.5 hover:border-orange/40 hover:shadow-[0_24px_40px_-20px_rgba(0,0,0,0.7)]"
               >
                 <div className={`relative flex min-h-[160px] flex-col justify-between bg-gradient-to-br p-6 ${p.gradient}`}>
                   <span className="font-display text-sm font-bold text-white/70">{p.number}</span>
                   <h3 className="font-display text-xl font-bold text-white">{p.title}</h3>
                 </div>
 
-                <div className="flex flex-1 flex-col gap-4 bg-surface p-6">
+                <div className="flex flex-1 flex-col gap-1 bg-surface p-6">
                   <p className="text-sm leading-relaxed text-gray-light">{p.oneLiner}</p>
-                  <div className="mt-auto flex items-center justify-between pt-2">
+
+                  {/* Secondary info layer — revealed on hover/focus rather than shown by default */}
+                  <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-hover:grid-rows-[1fr] group-focus-visible:grid-rows-[1fr]">
+                    <div className="overflow-hidden">
+                      <ul className="flex flex-wrap gap-1.5 pt-3">
+                        {p.tech.map((t) => (
+                          <li
+                            key={t}
+                            className="rounded-full bg-white/5 px-2.5 py-1 text-[11px] font-medium text-gray-light"
+                          >
+                            {t}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="mt-auto flex items-center justify-between pt-3">
                     {p.headlineMetric && (
                       <span className="text-sm font-semibold text-orange">{p.headlineMetric}</span>
                     )}
