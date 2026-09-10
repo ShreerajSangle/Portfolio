@@ -1,8 +1,21 @@
+/* Latin-only subsets — the site has no non-Latin content, so importing
+ * the full charset (cyrillic, vietnamese, etc.) would just be dead weight. */
+@import "@fontsource/geist-sans/latin-400.css";
+@import "@fontsource/geist-sans/latin-500.css";
+@import "@fontsource/geist-sans/latin-600.css";
+@import "@fontsource/geist-sans/latin-700.css";
+@import "@fontsource/geist-sans/latin-800.css";
+@import "@fontsource/geist-sans/latin-900.css";
+@import "@fontsource/geist-mono/latin-400.css";
+@import "@fontsource/geist-mono/latin-500.css";
+@import "@fontsource/geist-mono/latin-600.css";
+@import "@fontsource/geist-mono/latin-700.css";
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: "Inter Tight", "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: "Geist Sans", system-ui, -apple-system, sans-serif;
+  --font-display: "Geist Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   --color-ink: #000000;
   --color-surface: #0a0a0a;
@@ -66,7 +79,9 @@ body {
   background-color: var(--color-ink);
   color: var(--color-paper);
   font-family: var(--font-sans);
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
@@ -76,6 +91,50 @@ body {
 
 .font-display {
   font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ---- Typography scale ----
+ * Every tier uses clamp() so it scales continuously between mobile and
+ * desktop rather than jumping at breakpoints. Ranges follow the brief:
+ * hero 64–88px, section headings 36–48px, card/project titles 26–32px,
+ * body 16–18px, small labels 12–14px. */
+.text-hero {
+  font-size: clamp(2.75rem, 1.9rem + 4.5vw, 5.5rem); /* 44px -> 88px */
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.text-h2 {
+  font-size: clamp(1.75rem, 1.35rem + 1.9vw, 3rem); /* 28px -> 48px */
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.text-h3 {
+  font-size: clamp(1.25rem, 1.02rem + 1vw, 2rem); /* 20px -> 32px */
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.text-body {
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem); /* 16px -> 18px */
+  line-height: 1.65;
+}
+
+.text-label {
+  font-size: clamp(0.75rem, 0.71rem + 0.12vw, 0.875rem); /* 12px -> 14px */
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+}
+
+/* Constrains a paragraph to a comfortable reading measure regardless of
+ * its container width. */
+.measure {
+  max-width: 65ch;
 }
 
 /* Gradient used across hero/CTA surfaces — matches brand gradient spec */

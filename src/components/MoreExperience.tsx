@@ -9,7 +9,7 @@ export function MoreExperience() {
   return (
     <Reveal as="div" className="border-t border-line py-14">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-gray">More experience</p>
+        <p className="font-mono text-label mb-6 font-semibold uppercase text-gray">More experience</p>
         <div className="space-y-8">
           {rest.map((e) => (
             <div
@@ -19,13 +19,13 @@ export function MoreExperience() {
               <div>
                 <h3 className="font-display font-semibold text-paper">{e.company}</h3>
                 <p className="text-sm text-orange">{e.role}</p>
-                <p className="mt-1 text-sm text-gray">
+                <p className="font-mono text-label mt-1 text-gray">
                   {e.location} · {e.period}
                 </p>
               </div>
               <ul className="space-y-2">
                 {e.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2 text-sm leading-relaxed text-gray-light">
+                  <li key={b} className="text-body flex items-start gap-2 leading-relaxed text-gray-light">
                     <span aria-hidden className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-orange" />
                     {b}
                   </li>

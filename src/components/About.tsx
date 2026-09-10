@@ -7,16 +7,16 @@ export function About() {
     <section id="about" className="border-t border-line py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange">// 01 / About</p>
-          <h2 className="font-display mt-3 max-w-2xl text-balance text-3xl font-bold leading-tight tracking-[-0.01em] sm:text-4xl">
+          <p className="font-mono text-label font-semibold uppercase text-orange">// 01 / About</p>
+          <h2 className="font-display text-h2 mt-3 max-w-2xl text-balance font-bold">
             Design with purpose, build with rigor.
           </h2>
         </Reveal>
 
-        <Reveal delay={80} className="mt-8 max-w-2xl space-y-4 text-lg leading-relaxed text-gray-light">
+        <Reveal delay={80} className="measure mt-8 space-y-4 text-body text-gray-light">
           <p>{profile.summary}</p>
           <p>{profile.grounding}</p>
-          <p className="text-base text-gray">{profile.goal}</p>
+          <p className="text-body text-gray">{profile.goal}</p>
         </Reveal>
 
         <Reveal delay={140} className="mt-10 max-w-2xl">

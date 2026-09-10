@@ -9,8 +9,8 @@ export function FeaturedProjects() {
     <section id="projects" className="border-t border-line py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange">// 04 / Selected work</p>
-          <h2 className="font-display mt-3 text-balance text-3xl font-bold leading-tight tracking-[-0.01em] sm:text-4xl">
+          <p className="font-mono text-label font-semibold uppercase text-orange">// 04 / Selected work</p>
+          <h2 className="font-display text-h2 mt-3 text-balance font-bold">
             A few projects worth a closer look.
           </h2>
         </Reveal>
@@ -23,22 +23,19 @@ export function FeaturedProjects() {
                 className="press group flex h-full flex-col overflow-hidden rounded-3xl border border-line shadow-[0_0_0_rgba(0,0,0,0)] transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1.5 hover:border-orange/40 hover:shadow-[0_24px_40px_-20px_rgba(0,0,0,0.7)]"
               >
                 <div className={`relative flex min-h-[160px] flex-col justify-between bg-gradient-to-br p-6 ${p.gradient}`}>
-                  <span className="font-display text-sm font-bold text-white/70">{p.number}</span>
-                  <h3 className="font-display text-xl font-bold text-white">{p.title}</h3>
+                  <span className="font-mono text-sm font-bold text-white/70">{p.number}</span>
+                  <h3 className="font-display text-h3 font-bold text-white">{p.title}</h3>
                 </div>
 
                 <div className="flex flex-1 flex-col gap-1 bg-surface p-6">
-                  <p className="text-sm leading-relaxed text-gray-light">{p.oneLiner}</p>
+                  <p className="text-body leading-relaxed text-gray-light">{p.oneLiner}</p>
 
                   {/* Secondary info layer — revealed on hover/focus rather than shown by default */}
                   <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-hover:grid-rows-[1fr] group-focus-visible:grid-rows-[1fr]">
                     <div className="overflow-hidden">
-                      <ul className="flex flex-wrap gap-1.5 pt-3">
+                      <ul className="font-mono text-label flex flex-wrap gap-1.5 pt-3">
                         {p.tech.map((t) => (
-                          <li
-                            key={t}
-                            className="rounded-full bg-white/5 px-2.5 py-1 text-[11px] font-medium text-gray-light"
-                          >
+                          <li key={t} className="rounded-full bg-white/5 px-2.5 py-1 text-gray-light">
                             {t}
                           </li>
                         ))}
@@ -48,7 +45,7 @@ export function FeaturedProjects() {
 
                   <div className="mt-auto flex items-center justify-between pt-3">
                     {p.headlineMetric && (
-                      <span className="text-sm font-semibold text-orange">{p.headlineMetric}</span>
+                      <span className="font-mono text-sm font-semibold text-orange">{p.headlineMetric}</span>
                     )}
                     <span className="ml-auto inline-flex items-center gap-1.5 text-sm font-semibold text-paper transition-colors group-hover:text-orange">
                       View case study <span aria-hidden>→</span>

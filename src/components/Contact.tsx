@@ -11,11 +11,11 @@ export function Contact() {
 
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange">// 06 / Get in touch</p>
-          <h2 className="font-display mt-3 text-balance text-3xl font-bold leading-tight tracking-[-0.01em] sm:text-4xl md:text-5xl">
+          <p className="font-mono text-label font-semibold uppercase text-orange">// 06 / Get in touch</p>
+          <h2 className="font-display text-h2 mt-3 text-balance font-bold">
             Let&apos;s build something together.
           </h2>
-          <p className="mt-4 max-w-lg text-gray-light">
+          <p className="text-body measure mt-4 text-gray-light">
             Open to Data/BI Analyst and junior AI/ML Engineer roles — reach out directly and I&apos;ll get back to you.
           </p>
         </Reveal>
@@ -23,7 +23,7 @@ export function Contact() {
         <Reveal delay={120} className="mt-12 flex flex-wrap gap-4">
           <a
             href={`mailto:${profile.email}`}
-            className="press inline-flex items-center gap-2 rounded-full bg-orange px-7 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-orange-dim"
+            className="font-mono press inline-flex items-center gap-2 rounded-full bg-orange px-7 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-orange-dim"
           >
             {profile.email}
           </a>
@@ -33,7 +33,7 @@ export function Contact() {
             rel="noreferrer"
             className="press inline-flex items-center gap-2 rounded-full border border-line px-7 py-3.5 text-sm font-semibold text-paper transition-colors hover:border-orange/50"
           >
-            LinkedIn ↗
+            LinkedIn <span aria-hidden>↗</span>
           </a>
           <a
             href={profile.github}
@@ -41,7 +41,7 @@ export function Contact() {
             rel="noreferrer"
             className="press inline-flex items-center gap-2 rounded-full border border-line px-7 py-3.5 text-sm font-semibold text-paper transition-colors hover:border-orange/50"
           >
-            GitHub ↗
+            GitHub <span aria-hidden>↗</span>
           </a>
         </Reveal>
       </div>

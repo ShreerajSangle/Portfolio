@@ -10,7 +10,7 @@ export function MoreWork() {
   return (
     <Reveal as="div" className="border-t border-line py-14">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-gray">More work</p>
+        <p className="font-mono text-label mb-6 font-semibold uppercase text-gray">More work</p>
         <ul className="divide-y divide-line">
           {rest.map((p) => (
             <li key={p.slug}>

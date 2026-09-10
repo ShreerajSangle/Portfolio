@@ -6,8 +6,8 @@ export function Education() {
     <section id="education" className="border-t border-line py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange">// 05 / Education</p>
-          <h2 className="font-display mt-3 text-balance text-3xl font-bold leading-tight tracking-[-0.01em] sm:text-4xl">
+          <p className="font-mono text-label font-semibold uppercase text-orange">// 05 / Education</p>
+          <h2 className="font-display text-h2 mt-3 text-balance font-bold">
             Where the toolkit came from.
           </h2>
         </Reveal>
@@ -24,19 +24,19 @@ export function Education() {
               >
                 <div>
                   {ed.period && (
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">{ed.period}</p>
+                    <p className="font-mono text-label font-semibold uppercase text-white/70">{ed.period}</p>
                   )}
                   <h3 className="font-display mt-3 text-xl font-bold leading-tight text-white">{ed.degree}</h3>
                 </div>
-                <p className="text-sm text-white/70">{ed.location}</p>
+                <p className="font-mono text-label text-white/70">{ed.location}</p>
               </div>
 
               <div className="bg-surface p-6 sm:p-8">
                 <h4 className="font-display text-lg font-semibold text-paper">{ed.school}</h4>
-                {ed.detail && <p className="mt-2 text-sm leading-relaxed text-gray-light">{ed.detail}</p>}
+                {ed.detail && <p className="text-body mt-2 leading-relaxed text-gray-light">{ed.detail}</p>}
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {ed.coursework.map((c) => (
-                    <li key={c} className="rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-gray-light">
+                    <li key={c} className="font-mono text-label rounded-full bg-white/5 px-3 py-1 text-gray-light">
                       {c}
                     </li>
                   ))}

@@ -23,7 +23,7 @@ export function Disclosure({ title, subtitle, children, defaultOpen = false, cla
       >
         <span>
           <span className="font-display font-semibold text-paper">{title}</span>
-          {subtitle && <span className="ml-3 text-sm text-gray-light">{subtitle}</span>}
+          {subtitle && <span className="font-mono text-label ml-3 text-gray">{subtitle}</span>}
         </span>
         <span
           aria-hidden

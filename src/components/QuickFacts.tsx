@@ -18,8 +18,8 @@ export function QuickFacts() {
               i !== last ? "sm:border-r" : "sm:border-r-0",
             ].join(" ")}
           >
-            <p className="font-display text-3xl font-extrabold tracking-tight text-orange sm:text-4xl">{f.value}</p>
-            <p className="mt-2 text-xs font-semibold uppercase tracking-[0.15em] text-gray-light">{f.label}</p>
+            <p className="font-mono text-h3 font-bold tracking-tight text-orange">{f.value}</p>
+            <p className="font-mono text-label mt-2 font-semibold uppercase text-gray-light">{f.label}</p>
           </div>
         ))}
       </div>

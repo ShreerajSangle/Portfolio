@@ -8,8 +8,8 @@ export function FeaturedExperience() {
     <section id="experience" className="border-t border-line py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange">// 02 / Experience</p>
-          <h2 className="font-display mt-3 text-balance text-3xl font-bold leading-tight tracking-[-0.01em] sm:text-4xl">
+          <p className="font-mono text-label font-semibold uppercase text-orange">// 02 / Experience</p>
+          <h2 className="font-display text-h2 mt-3 text-balance font-bold">
             Grounded in real internship work.
           </h2>
         </Reveal>
@@ -25,18 +25,18 @@ export function FeaturedExperience() {
                 className={`flex flex-col justify-between gap-6 bg-gradient-to-br p-6 sm:p-8 ${accentGradients[i % accentGradients.length]}`}
               >
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">{e.period}</p>
-                  <h3 className="font-display mt-3 text-2xl font-bold leading-tight text-white">{e.company}</h3>
+                  <p className="font-mono text-label font-semibold uppercase text-white/70">{e.period}</p>
+                  <h3 className="font-display text-h3 mt-3 font-bold leading-tight text-white">{e.company}</h3>
                 </div>
-                <p className="text-sm text-white/70">{e.location}</p>
+                <p className="font-mono text-label text-white/70">{e.location}</p>
               </div>
 
               <div className="bg-surface p-6 sm:p-8">
                 <h4 className="font-display text-lg font-semibold text-paper">{e.role}</h4>
                 <ul className="mt-4 space-y-3">
                   {e.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-3 text-sm leading-relaxed text-gray-light">
-                      <span aria-hidden className="mt-0.5 shrink-0 font-display text-sm font-bold text-orange">
+                    <li key={b} className="flex items-start gap-3 text-body leading-relaxed text-gray-light">
+                      <span aria-hidden className="font-mono mt-0.5 shrink-0 text-sm font-bold text-orange">
                         &gt;
                       </span>
                       {b}

@@ -11,13 +11,13 @@ export function Hero() {
 
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange">
+          <p className="font-mono text-label font-semibold uppercase text-orange">
             {profile.location} · Open to Data/BI & AI/ML roles
           </p>
         </Reveal>
 
-        <Reveal delay={80} className="mt-4">
-          <h1 className="font-display max-w-4xl text-balance text-[2.75rem] font-extrabold leading-[1.05] tracking-[-0.02em] sm:text-6xl md:text-7xl">
+        <Reveal delay={80} className="mt-5">
+          <h1 className="font-display text-hero max-w-4xl text-balance font-extrabold">
             Hey, I&apos;m building at the intersection of{" "}
             <span className="bg-gradient-to-r from-orange to-cream bg-clip-text text-transparent">
               AI, data & product.
@@ -26,7 +26,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={160} className="mt-8">
-          <p className="max-w-xl text-balance text-lg leading-relaxed text-gray-light">{profile.tagline}</p>
+          <p className="measure text-body text-balance text-gray-light">{profile.tagline}</p>
         </Reveal>
 
         <Reveal delay={220} className="mt-8 flex flex-wrap items-center gap-3">
@@ -35,14 +35,14 @@ export function Hero() {
             href="#projects"
             className="press inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-orange-dim"
           >
-            See my Work <span aria-hidden>→</span>
+            View my work <span aria-hidden>→</span>
           </a>
           {/* Secondary in-page action: orange outline, same family as the primary */}
           <a
             href="#experience"
             className="press inline-flex items-center gap-2 rounded-full border border-orange/40 px-6 py-3 text-sm font-semibold text-orange transition-colors hover:border-orange hover:bg-orange/10"
           >
-            See Experience <span aria-hidden>↓</span>
+            View experience <span aria-hidden>↓</span>
           </a>
           {/* Tertiary: external contact links, neutral so they read as a distinct group */}
           <a

@@ -12,8 +12,8 @@ export function Skills() {
           className="rounded-[2rem] border border-white/10 bg-surface p-6 sm:p-10"
         >
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange">// 03 / Skills</p>
-            <h2 className="font-display mt-3 text-balance text-3xl font-bold leading-tight tracking-[-0.01em] sm:text-4xl">
+            <p className="font-mono text-label font-semibold uppercase text-orange">// 03 / Skills</p>
+            <h2 className="font-display text-h2 mt-3 text-balance font-bold">
               A toolkit spanning AI, full-stack, and data.
             </h2>
           </div>
@@ -27,7 +27,7 @@ export function Skills() {
                 <div
                   className={`flex h-16 items-center bg-gradient-to-br px-6 ${accentGradients[i % accentGradients.length]}`}
                 >
-                  <span className="font-display text-sm font-bold text-white">
+                  <span className="font-mono text-sm font-bold text-white">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
@@ -37,7 +37,7 @@ export function Skills() {
                     {g.items.map((item) => (
                       <li
                         key={item}
-                        className="rounded-full bg-white/5 px-3 py-1.5 text-xs font-medium text-gray-light"
+                        className="font-mono text-label rounded-full bg-white/5 px-3 py-1.5 text-gray-light"
                       >
                         {item}
                       </li>
