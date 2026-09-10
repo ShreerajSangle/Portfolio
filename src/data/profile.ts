@@ -121,8 +121,56 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "job-tracker",
+    slug: "stock-market-prediction",
     number: "02",
+    title: "Multi-Horizon Stock Market Prediction System",
+    subtitle: "Comparative Forecasting Engine — ARIMA, XGBoost & LSTM-Attention",
+    oneLiner: "A hybrid forecasting engine benchmarking ARIMA, XGBoost, and LSTM-Attention on 50 S&P 500 equities.",
+    headlineMetric: "62% directional accuracy",
+    description:
+      "Comparative forecasting engine benchmarking statistical and deep learning models on equity price series. Engineered a forecasting pipeline for 50 S&P 500 equities combining ARIMA, XGBoost, and LSTM-Attention models with Pandas-derived technical indicators (EMA, RSI, MACD), then exposed model outputs through a FastAPI service backed by PostgreSQL for repeatable batch scoring and historical prediction retrieval.",
+    results: [
+      "Achieved 62% directional accuracy on 5-day horizons with LSTM-Attention, outperforming the ARIMA baseline by 9 percentage points",
+      "Evaluated all models on RMSE, MAE, and directional accuracy under walk-forward validation, recording RMSE of 1.8% on normalised close prices",
+      "Exposed model outputs through a FastAPI service backed by PostgreSQL, enabling repeatable batch scoring and historical prediction retrieval",
+    ],
+    tech: ["Python", "XGBoost", "LSTM", "FastAPI", "PostgreSQL"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/ShreerajSangle/Multi--Horizon-Stock-Price-Forecasting-using-ARIMA-XGBoost-and-LSTM",
+      },
+    ],
+    gradient: "from-[#050505] via-[#333333] to-[#646464]",
+    featured: true,
+  },
+  {
+    slug: "dublin-bike-traffic",
+    number: "03",
+    title: "Dublin City Bicycle Traffic Forecasting",
+    subtitle: "Time-Series Analysis for Evidence-Based Urban Mobility Planning",
+    oneLiner: "Forecasting Dublin cycling volumes from 12 sensor locations to support urban mobility planning.",
+    headlineMetric: "75%+ forecast accuracy",
+    description:
+      "Time-series analysis of city cycling volumes to support evidence-based urban mobility planning. Processed 15,000+ hourly cycling records from 12 sensor locations through a Pandas ETL pipeline with SQL-based outlier detection and temporal feature engineering, then benchmarked ARIMA, Holt-Winters, and Random Forest using time-series cross-validation.",
+    results: [
+      "Reached 75%+ forecasting accuracy with the tuned Random Forest model, benchmarked against ARIMA and Holt-Winters",
+      "Processed 15,000+ hourly cycling records from 12 sensor locations with SQL-based outlier detection and temporal feature engineering",
+      "Delivered 4 automated Power BI dashboards with seasonal heatmaps and trend analysis for non-technical stakeholders",
+    ],
+    tech: ["Python", "SQL", "Power BI", "ARIMA", "Random Forest"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/ShreerajSangle/Annual-Bicycle-Counts-for-Key-Dublin-Locations-2023-",
+      },
+    ],
+    gradient: "from-[#000000] via-[#4a1a00] to-[#e85002]",
+    featured: true,
+  },
+  {
+    slug: "job-tracker",
+    number: "04",
     title: "AI Job Application Tracker",
     subtitle: "Full-Stack Job Search App with LLM-Powered Auto-Fill",
     oneLiner: "A self-directed full-stack app that auto-fills job applications with an LLM, live and on GitHub.",
@@ -138,25 +186,12 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/ShreerajSangle/Job-Tracker" },
       { label: "Live site", href: "https://job-tracker-iota-wheat.vercel.app/dashboard" },
     ],
-    gradient: "from-[#050505] via-[#333333] to-[#646464]",
-    featured: true,
-  },
-  {
-    slug: "data-forecasting",
-    number: "03",
-    title: "Data Forecasting Projects",
-    subtitle: "Bicycle Traffic Forecasting & Multi-Horizon Stock Prediction",
-    oneLiner: "Two applied time-series systems — city cycle-traffic forecasting and multi-horizon stock prediction.",
-    headlineMetric: "2 forecasting systems",
-    description:
-      "Two applied time-series projects: a SQL schema and forecasting models for Dublin city bicycle traffic counters, and a multi-horizon stock market prediction system across different time windows.",
-    tech: ["Python", "SQL", "ARIMA-family models"],
-    gradient: "from-[#000000] via-[#4a1a00] to-[#e85002]",
-    featured: true,
+    gradient: "from-[#0a0a0a] via-[#333333] to-[#646464]",
+    featured: false,
   },
   {
     slug: "closet-iq",
-    number: "04",
+    number: "05",
     title: "Closet IQ",
     subtitle: "AI-Assisted Wardrobe & Outfit Recommendation App",
     oneLiner: "A wardrobe organiser recommending outfits by seasonal colour theory, occasion, and weather.",
@@ -172,7 +207,7 @@ export const projects: Project[] = [
   },
   {
     slug: "comet",
-    number: "05",
+    number: "06",
     title: "COMET",
     subtitle: "Interactive Brand Campaign & E-Commerce Website",
     oneLiner: "An AI-tools-only animated e-commerce campaign site for a sneaker brand collaboration.",
@@ -198,27 +233,6 @@ export type ExperienceItem = {
 };
 
 export const experience: ExperienceItem[] = [
-  {
-    company: "Lidl Ireland",
-    location: "Bray, Ireland",
-    role: "Retail Team Member (part-time)",
-    period: "2024/2025 – Present",
-    bullets: [
-      "Deliver customer service and complaint resolution on a high-volume shop floor within a 6–7 colleague team, escalating where needed to Duty/Deputy Managers.",
-      "Operate tills and perform cash-management checks; support goods-in, warehouse pallet organisation, replenishment, and stock rotation with use-by-date and merchandising compliance.",
-      "Support store refurbishments, new openings/re-openings, and provide input into annual business planning around KPI targets and staffing.",
-      "Acted as store responsible person on shift — managing staff, overseeing reductions and backstock, and running the till.",
-    ],
-  },
-  {
-    company: "Healthy Trends",
-    location: "Dublin, Ireland",
-    role: "Sales Assistant",
-    period: "Dec 2024 – Apr 2025",
-    bullets: [
-      "Sold non-prescription health products including vitamins, minerals (e.g. magnesium), supplements, and juices.",
-    ],
-  },
   {
     company: "Techigent Technologies",
     location: "Mumbai, India",
@@ -263,6 +277,27 @@ export const experience: ExperienceItem[] = [
       "Managed end-to-end coordination of brand sponsorship engagements — negotiating terms, tracking deliverables, liaising between client and external brand partners.",
       "Maintained invoicing and payment tracking across multiple concurrent sponsorship deals.",
       "Tracked growth and engagement analytics across campaigns and reported results back to the client and partners.",
+    ],
+  },
+  {
+    company: "Healthy Trends",
+    location: "Dublin, Ireland",
+    role: "Sales Assistant",
+    period: "Dec 2024 – Apr 2025",
+    bullets: [
+      "Sold non-prescription health products including vitamins, minerals (e.g. magnesium), supplements, and juices.",
+    ],
+  },
+  {
+    company: "Lidl Ireland",
+    location: "Bray, Ireland",
+    role: "Retail Team Member (part-time)",
+    period: "2024/2025 – Present",
+    bullets: [
+      "Deliver customer service and complaint resolution on a high-volume shop floor within a 6–7 colleague team, escalating where needed to Duty/Deputy Managers.",
+      "Operate tills and perform cash-management checks; support goods-in, warehouse pallet organisation, replenishment, and stock rotation with use-by-date and merchandising compliance.",
+      "Support store refurbishments, new openings/re-openings, and provide input into annual business planning around KPI targets and staffing.",
+      "Acted as store responsible person on shift — managing staff, overseeing reductions and backstock, and running the till.",
     ],
   },
 ];

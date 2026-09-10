@@ -3,9 +3,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { profile } from "../data/profile";
 
 const LINKS = [
-  { hash: "#home", label: "Home" },
-  { hash: "#about", label: "About" },
+  { hash: "#experience", label: "Experience" },
+  { hash: "#skills", label: "Skills" },
   { hash: "#projects", label: "Projects" },
+  { hash: "#education", label: "Education" },
   { hash: "#contact", label: "Contact" },
 ];
 
