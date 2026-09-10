@@ -67,6 +67,8 @@ The repo includes `vercel.json` so Vercel needs no manual configuration:
 2. Vercel detects the Vite framework automatically (build command `npm run build`, output directory `dist`).
 3. Set the **Production Branch** to `main` in Project Settings → Git, so deployments track `main` (development can still be previewed from `test` via Vercel's automatic PR/branch previews).
 
+`vercel.json` also sets security headers (CSP, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`) on every response. These only take effect on Vercel — GitHub Pages does not support custom response headers, so the GitHub Pages deployment serves without them.
+
 No environment variables are required for the Vercel build — `VITE_BASE_PATH` defaults to `/`, which is correct for a root domain deployment.
 
 ## Notes on content
