@@ -43,8 +43,16 @@ export function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
-        <Link to="/" className="font-display text-lg font-bold tracking-tight">
-          Shreeraj<span className="text-orange">.</span>
+        <Link to="/" className="flex items-center gap-3">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange font-display text-sm font-extrabold text-black">
+            SS
+          </span>
+          <span className="flex flex-col leading-tight">
+            <span className="font-display text-sm font-bold tracking-wide text-paper">Shreeraj Sangle</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-light">
+              {profile.roleShort} Builder
+            </span>
+          </span>
         </Link>
 
         <ul className="hidden items-center gap-8 text-sm font-medium text-gray-light md:flex">

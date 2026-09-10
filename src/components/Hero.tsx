@@ -25,16 +25,44 @@ export function Hero() {
           </h1>
         </Reveal>
 
-        <Reveal delay={160} className="mt-8 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
-          <p className="max-w-xl text-balance text-lg leading-relaxed text-gray-light">
-            {profile.tagline}
-          </p>
+        <Reveal delay={160} className="mt-8">
+          <p className="max-w-xl text-balance text-lg leading-relaxed text-gray-light">{profile.tagline}</p>
+        </Reveal>
+
+        <Reveal delay={220} className="mt-8 flex flex-wrap items-center gap-3">
+          <a
+            href="#experience"
+            className="press inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold text-paper transition-colors hover:border-orange/50"
+          >
+            See Experience <span aria-hidden>↓</span>
+          </a>
           <a
             href="#projects"
-            className="press inline-flex w-fit items-center gap-2 rounded-full bg-paper px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-cream"
+            className="press inline-flex items-center gap-2 rounded-full bg-paper px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-cream"
           >
-            See my work
-            <span aria-hidden>→</span>
+            See my Work <span aria-hidden>→</span>
+          </a>
+          <a
+            href={`mailto:${profile.email}`}
+            className="press inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold text-paper transition-colors hover:border-orange/50"
+          >
+            Email me <span aria-hidden>↗</span>
+          </a>
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="press inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold text-paper transition-colors hover:border-orange/50"
+          >
+            LinkedIn <span aria-hidden>↗</span>
+          </a>
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+            className="press inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold text-paper transition-colors hover:border-orange/50"
+          >
+            GitHub <span aria-hidden>↗</span>
           </a>
         </Reveal>
       </div>
