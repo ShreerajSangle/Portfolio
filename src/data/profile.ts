@@ -24,27 +24,16 @@ export const profile = {
   goal: "Actively job-searching across Data/BI Analyst and junior AI/ML Engineer roles — while building toward independent entrepreneurship in AI, sports, or agriculture technology, with an eventual return to India.",
 } as const;
 
-export const heroStats = [
-  { id: "01", label: "AI & Machine Learning" },
-  { id: "02", label: "Full-Stack Development" },
-  { id: "03", label: "Data & Business Analytics" },
-  { id: "04", label: "Retail Operations" },
-] as const;
+export type EducationItem = {
+  school: string;
+  location: string;
+  degree: string;
+  period: string;
+  detail: string;
+  coursework: string[];
+};
 
-export const techStack = [
-  "Python",
-  "TypeScript",
-  "React",
-  "FastAPI",
-  "PostgreSQL",
-  "Supabase",
-  "SQL",
-  "Power BI",
-  "Docker",
-  "AWS",
-] as const;
-
-export const education = [
+export const education: EducationItem[] = [
   {
     school: "National College of Ireland",
     location: "Dublin, Ireland",
@@ -91,26 +80,35 @@ export const education = [
       "Microprocessors",
     ],
   },
-] as const;
+];
 
 export type Project = {
-  id: string;
+  slug: string;
   number: string;
   title: string;
   subtitle: string;
+  /** One-line outcome shown on compact cards (homepage, more-work list). */
+  oneLiner: string;
+  /** Single standout stat shown on the featured card, e.g. "92.5% accuracy". */
+  headlineMetric?: string;
+  /** Full case-study description, shown only on the project detail page. */
   description: string;
   results?: string[];
   tech: string[];
   links?: { label: string; href: string }[];
   gradient: string;
+  /** Featured projects get a full card on the homepage; others go in "More work". */
+  featured: boolean;
 };
 
 export const projects: Project[] = [
   {
-    id: "mental-health",
+    slug: "mental-health-assistant",
     number: "01",
     title: "Multimodal Mental Health Assistant",
     subtitle: "Real-Time Risk-Detection & Triage System — MSc Thesis",
+    oneLiner: "A production-style multimodal ML system for real-time mental-health risk detection and triage.",
+    headlineMetric: "92.5% accuracy",
     description:
       "Designed, trained, and deployed an end-to-end multimodal model for real-time mental-health risk detection and triage, built and served as a production-style application rather than a notebook-only exercise.",
     results: [
@@ -120,12 +118,15 @@ export const projects: Project[] = [
     ],
     tech: ["FastAPI", "PostgreSQL", "Docker", "Multimodal ML"],
     gradient: "from-[#1a0500] via-[#c10801] to-[#f16001]",
+    featured: true,
   },
   {
-    id: "job-tracker",
+    slug: "job-tracker",
     number: "02",
     title: "AI Job Application Tracker",
     subtitle: "Full-Stack Job Search App with LLM-Powered Auto-Fill",
+    oneLiner: "A self-directed full-stack app that auto-fills job applications with an LLM, live and on GitHub.",
+    headlineMetric: "Live demo",
     description:
       "A self-directed full-stack web app to track job applications, iterated across AI auto-fill, security hardening, and an Apple-style UI redesign work-stream.",
     results: [
@@ -138,22 +139,27 @@ export const projects: Project[] = [
       { label: "Live site", href: "https://job-tracker-iota-wheat.vercel.app/dashboard" },
     ],
     gradient: "from-[#050505] via-[#333333] to-[#646464]",
+    featured: true,
   },
   {
-    id: "forecasting",
+    slug: "data-forecasting",
     number: "03",
     title: "Data Forecasting Projects",
     subtitle: "Bicycle Traffic Forecasting & Multi-Horizon Stock Prediction",
+    oneLiner: "Two applied time-series systems — city cycle-traffic forecasting and multi-horizon stock prediction.",
+    headlineMetric: "2 forecasting systems",
     description:
       "Two applied time-series projects: a SQL schema and forecasting models for Dublin city bicycle traffic counters, and a multi-horizon stock market prediction system across different time windows.",
     tech: ["Python", "SQL", "ARIMA-family models"],
     gradient: "from-[#000000] via-[#4a1a00] to-[#e85002]",
+    featured: true,
   },
   {
-    id: "closet-iq",
+    slug: "closet-iq",
     number: "04",
     title: "Closet IQ",
     subtitle: "AI-Assisted Wardrobe & Outfit Recommendation App",
+    oneLiner: "A wardrobe organiser recommending outfits by seasonal colour theory, occasion, and weather.",
     description:
       "A wardrobe organiser that recommends complete outfits based on skin tone (seasonal colour theory), occasion, and weather — architected from scratch, choosing a rules-based engine over ML for a fast, no-bloat MVP.",
     results: [
@@ -162,12 +168,14 @@ export const projects: Project[] = [
     ],
     tech: ["React 19", "TanStack", "Supabase", "Appwrite", "Groq"],
     gradient: "from-[#0a0a0a] via-[#5c2e00] to-[#d9c3ab]",
+    featured: false,
   },
   {
-    id: "comet",
+    slug: "comet",
     number: "05",
     title: "COMET",
     subtitle: "Interactive Brand Campaign & E-Commerce Website",
+    oneLiner: "An AI-tools-only animated e-commerce campaign site for a sneaker brand collaboration.",
     description:
       "An AI-tools-only marketing/product build: a high-end, animated e-commerce campaign site for a sneaker brand themed around an urban endless-runner universe, with a Subway Surfers brand collaboration.",
     results: [
@@ -177,6 +185,7 @@ export const projects: Project[] = [
     ],
     tech: ["Supabase", "Razorpay", "Veo 3.1", "Suno AI", "Captions"],
     gradient: "from-[#000000] via-[#c10801] to-[#333333]",
+    featured: false,
   },
 ];
 
@@ -320,13 +329,6 @@ export const services = [
     description:
       "Hands-on floor operations experience — KPI tracking, stock management, and business-planning input grounded in a real retail environment.",
   },
-] as const;
-
-export const highlights = [
-  { value: "92.5%", label: "Classification accuracy on the multimodal mental-health system" },
-  { value: "<200ms", label: "Inference latency on the same production-style ML system" },
-  { value: "99%+", label: "Uptime with alerting and load-tested failover" },
-  { value: "88%", label: "Test accuracy across 3 supervised models on 10K–50K record datasets" },
 ] as const;
 
 export const interests = [

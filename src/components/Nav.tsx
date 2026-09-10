@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { profile } from "../data/profile";
 
 const LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+  { hash: "#home", label: "Home" },
+  { hash: "#about", label: "About" },
+  { hash: "#projects", label: "Projects" },
+  { hash: "#contact", label: "Contact" },
 ];
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -19,6 +22,19 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  function goToSection(hash: string) {
+    return (e: React.MouseEvent) => {
+      e.preventDefault();
+      setOpen(false);
+      if (location.pathname === "/") {
+        document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.pushState(null, "", hash);
+      } else {
+        navigate(`/${hash}`);
+      }
+    };
+  }
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300 ${
@@ -26,14 +42,14 @@ export function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
-        <a href="#home" className="font-display text-lg font-bold tracking-tight">
+        <Link to="/" className="font-display text-lg font-bold tracking-tight">
           Shreeraj<span className="text-orange">.</span>
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-8 text-sm font-medium text-gray-light md:flex">
           {LINKS.map((l) => (
-            <li key={l.href}>
-              <a href={l.href} className="press transition-colors hover:text-paper">
+            <li key={l.hash}>
+              <a href={`/${l.hash}`} onClick={goToSection(l.hash)} className="press transition-colors hover:text-paper">
                 {l.label}
               </a>
             </li>
@@ -72,10 +88,10 @@ export function Nav() {
       >
         <ul className="flex flex-col gap-1 px-5 py-4 text-base">
           {LINKS.map((l) => (
-            <li key={l.href}>
+            <li key={l.hash}>
               <a
-                href={l.href}
-                onClick={() => setOpen(false)}
+                href={`/${l.hash}`}
+                onClick={goToSection(l.hash)}
                 className="block rounded-lg px-2 py-2.5 text-gray-light transition-colors hover:bg-white/5 hover:text-paper"
               >
                 {l.label}

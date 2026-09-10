@@ -1,4 +1,4 @@
-import { heroStats, profile, techStack } from "../data/profile";
+import { profile } from "../data/profile";
 import { Reveal } from "./Reveal";
 
 export function Hero() {
@@ -36,29 +36,6 @@ export function Hero() {
             See my work
             <span aria-hidden>→</span>
           </a>
-        </Reveal>
-
-        <Reveal delay={240} className="mt-16 grid grid-cols-2 gap-6 border-t border-line pt-8 sm:grid-cols-4">
-          {heroStats.map((s) => (
-            <div key={s.id}>
-              <span className="font-display text-xs font-bold text-orange">{s.id}</span>
-              <p className="mt-1 text-sm font-medium text-gray-light">{s.label}</p>
-            </div>
-          ))}
-        </Reveal>
-
-        <Reveal delay={300} className="mt-12">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-gray">Core stack</p>
-          <ul className="flex flex-wrap gap-3">
-            {techStack.map((t) => (
-              <li
-                key={t}
-                className="rounded-full border border-line px-4 py-2 text-sm font-medium text-gray-light"
-              >
-                {t}
-              </li>
-            ))}
-          </ul>
         </Reveal>
       </div>
     </section>

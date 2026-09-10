@@ -1,4 +1,5 @@
-import { education, profile } from "../data/profile";
+import { profile, services } from "../data/profile";
+import { Disclosure } from "./Disclosure";
 import { Reveal } from "./Reveal";
 
 export function About() {
@@ -12,40 +13,24 @@ export function About() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-12 lg:grid-cols-2">
-          <Reveal delay={80} className="space-y-5 text-lg leading-relaxed text-gray-light">
-            <p>{profile.summary}</p>
-            <p>{profile.grounding}</p>
-            <p>{profile.goal}</p>
-          </Reveal>
+        <Reveal delay={80} className="mt-8 max-w-2xl space-y-4 text-lg leading-relaxed text-gray-light">
+          <p>{profile.summary}</p>
+          <p>{profile.grounding}</p>
+          <p className="text-base text-gray">{profile.goal}</p>
+        </Reveal>
 
-          <Reveal delay={160}>
-            <div className="space-y-6">
-              {education.map((ed) => (
-                <div key={`${ed.school}-${ed.degree}`} className="rounded-2xl border border-line bg-surface p-6">
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="font-display font-semibold text-paper">{ed.degree}</h3>
-                    {ed.period && <span className="text-sm text-gray">{ed.period}</span>}
-                  </div>
-                  <p className="mt-1 text-sm text-orange">
-                    {ed.school} · {ed.location}
-                  </p>
-                  {ed.detail && <p className="mt-3 text-sm text-gray-light">{ed.detail}</p>}
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {ed.coursework.map((c) => (
-                      <li
-                        key={c}
-                        className="rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-gray-light"
-                      >
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+        <Reveal delay={140} className="mt-10 max-w-2xl">
+          <Disclosure title="What I can help with" subtitle={`${services.length} areas`}>
+            <ul className="space-y-4 pt-1">
+              {services.map((s) => (
+                <li key={s.title}>
+                  <p className="font-display text-sm font-semibold text-paper">{s.title}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-gray-light">{s.description}</p>
+                </li>
               ))}
-            </div>
-          </Reveal>
-        </div>
+            </ul>
+          </Disclosure>
+        </Reveal>
       </div>
     </section>
   );

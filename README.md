@@ -5,21 +5,38 @@ Personal portfolio site for Shreeraj Sangle (AI & Full-Stack Product Builder), b
 ## Tech stack
 
 - **React 19 + TypeScript** — component structure
+- **React Router** — client-side routing (homepage + a dedicated case-study page per featured project)
 - **Vite** — build tool / dev server
 - **Tailwind CSS v4** — styling, driven by design tokens matching the brand palette (`src/index.css`)
 - Content lives in a single typed data file (`src/data/profile.ts`) for easy editing
+
+## Content structure
+
+The homepage is intentionally minimal — a skim path, not a full inventory:
+
+- **Hero** — one-line positioning, no stat tiles
+- **Featured projects** (3 of 5) — compact cards with a one-line outcome and a headline metric, linking to a full case-study page at `/projects/:slug`
+- **More work** — the remaining 2 projects as a plain linked list, same case-study depth one click away
+- **About** — a short bio; "What I can help with" expands on click
+- **Experience** — kept fully expanded (résumé-critical, always visible)
+- **Skills & Education** — collapsed-by-default accordion, expand any category/degree for the full detail
+
+Nothing was removed — dense content (full project descriptions, the complete skills matrix, education coursework) still exists, just behind a click instead of forced into the initial scroll. See `src/data/profile.ts` for the full data model (`Project.featured` controls the homepage/More-work split).
 
 ## Project structure
 
 ```
 src/
-  components/   UI sections (Nav, Hero, Projects, About, Services, Experience, Skills, Highlights, Contact, Footer)
+  components/   Nav, Hero, FeaturedProjects, MoreWork, About, Experience, SkillsEducation,
+                Contact, Footer, Disclosure (expand/collapse), Reveal (scroll-in), ScrollToTop
+  pages/        Home.tsx, ProjectDetail.tsx — routed via React Router
   data/         profile.ts — all site content in one place
-  hooks/        useReveal.ts — scroll-reveal IntersectionObserver hook
+  hooks/        useReveal.ts (scroll-reveal), useScrollToHash.ts (cross-page section links)
   index.css     Tailwind entry + design tokens (colors, fonts, animations)
-  App.tsx       page composition
+  App.tsx       router setup + persistent Nav/Footer
 public/
   favicon.svg
+  404.html, spa-redirect.js   GitHub Pages SPA fallback for direct /projects/:slug links
 .github/workflows/deploy-pages.yml   GitHub Pages deployment
 vercel.json                          Vercel deployment config
 ```
@@ -58,6 +75,8 @@ One-time setup in the repository:
 3. Push to `main` — the workflow builds with `VITE_BASE_PATH=/<repo-name>/` (set automatically from the repository name) and publishes `dist/` to Pages.
 
 The site will be available at `https://<username>.github.io/<repo-name>/`.
+
+Because the site now uses client-side routing (`/projects/:slug` case-study pages), a direct load or refresh of one of those URLs would normally 404 on GitHub Pages (it only serves static files, no server rewrite). `public/404.html` + `public/spa-redirect.js` handle this with the standard [spa-github-pages](https://github.com/rafgraph/spa-github-pages) redirect trick — no action needed, it's already wired up. Vercel doesn't need this; `vercel.json`'s rewrite covers it directly.
 
 ### Vercel
 
