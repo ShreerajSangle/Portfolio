@@ -7,7 +7,7 @@ export const profile = {
   roleLine: "Product Builder",
   location: "Dublin, Ireland",
   homeBase: "Mumbai, India",
-  email: "sangleshreeraj.ie@gmail.com",
+  email: "shreerajsangle0@gmail.com",
   linkedin: "https://linkedin.com/in/shreeraj-sangle",
   github: "https://github.com/ShreerajSangle",
   phone: null as string | null, // not confirmed in source profile

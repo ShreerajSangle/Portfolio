@@ -1,4 +1,4 @@
-import { education } from "../data/profile";
+import { accentGradients, education } from "../data/profile";
 import { Reveal } from "./Reveal";
 
 export function Education() {
@@ -13,26 +13,35 @@ export function Education() {
         </Reveal>
 
         <div className="mt-12 space-y-6">
-          {education.map((ed) => (
+          {education.map((ed, i) => (
             <Reveal
               key={`${ed.school}-${ed.degree}`}
-              className="rounded-2xl border border-line bg-surface p-6"
+              delay={i * 60}
+              className="grid overflow-hidden rounded-3xl border border-line md:grid-cols-[260px_1fr]"
             >
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="font-display font-semibold text-paper">{ed.degree}</h3>
-                {ed.period && <span className="text-sm text-gray">{ed.period}</span>}
+              <div
+                className={`flex flex-col justify-between gap-6 bg-gradient-to-br p-6 sm:p-8 ${accentGradients[i % accentGradients.length]}`}
+              >
+                <div>
+                  {ed.period && (
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">{ed.period}</p>
+                  )}
+                  <h3 className="font-display mt-3 text-xl font-bold leading-tight text-white">{ed.degree}</h3>
+                </div>
+                <p className="text-sm text-white/70">{ed.location}</p>
               </div>
-              <p className="mt-1 text-sm text-orange">
-                {ed.school} · {ed.location}
-              </p>
-              {ed.detail && <p className="mt-3 text-sm text-gray-light">{ed.detail}</p>}
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {ed.coursework.map((c) => (
-                  <li key={c} className="rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-gray-light">
-                    {c}
-                  </li>
-                ))}
-              </ul>
+
+              <div className="bg-surface p-6 sm:p-8">
+                <h4 className="font-display text-lg font-semibold text-paper">{ed.school}</h4>
+                {ed.detail && <p className="mt-2 text-sm leading-relaxed text-gray-light">{ed.detail}</p>}
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {ed.coursework.map((c) => (
+                    <li key={c} className="rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-gray-light">
+                      {c}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Reveal>
           ))}
         </div>
