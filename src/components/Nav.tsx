@@ -47,11 +47,8 @@ export function Nav() {
           <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange font-display text-sm font-extrabold text-black">
             SS
           </span>
-          <span className="flex flex-col leading-tight">
-            <span className="font-display text-sm font-bold tracking-wide text-paper">Shreeraj Sangle</span>
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-light">
-              {profile.roleShort} Builder
-            </span>
+          <span className="font-display text-lg font-bold tracking-tight">
+            Shreeraj<span className="text-orange">.</span>
           </span>
         </Link>
 
