@@ -30,21 +30,24 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={220} className="mt-8 flex flex-wrap items-center gap-3">
-          <a
-            href="#experience"
-            className="press inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold text-paper transition-colors hover:border-orange/50"
-          >
-            See Experience <span aria-hidden>↓</span>
-          </a>
+          {/* Primary action: filled orange, the site's one "do this" color */}
           <a
             href="#projects"
-            className="press inline-flex items-center gap-2 rounded-full bg-paper px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-cream"
+            className="press inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-orange-dim"
           >
             See my Work <span aria-hidden>→</span>
           </a>
+          {/* Secondary in-page action: orange outline, same family as the primary */}
+          <a
+            href="#experience"
+            className="press inline-flex items-center gap-2 rounded-full border border-orange/40 px-6 py-3 text-sm font-semibold text-orange transition-colors hover:border-orange hover:bg-orange/10"
+          >
+            See Experience <span aria-hidden>↓</span>
+          </a>
+          {/* Tertiary: external contact links, neutral so they read as a distinct group */}
           <a
             href={`mailto:${profile.email}`}
-            className="press inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold text-paper transition-colors hover:border-orange/50"
+            className="press inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold text-gray-light transition-colors hover:border-white/30 hover:text-paper"
           >
             Email me <span aria-hidden>↗</span>
           </a>
@@ -52,7 +55,7 @@ export function Hero() {
             href={profile.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="press inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold text-paper transition-colors hover:border-orange/50"
+            className="press inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold text-gray-light transition-colors hover:border-white/30 hover:text-paper"
           >
             LinkedIn <span aria-hidden>↗</span>
           </a>
@@ -60,7 +63,7 @@ export function Hero() {
             href={profile.github}
             target="_blank"
             rel="noreferrer"
-            className="press inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold text-paper transition-colors hover:border-orange/50"
+            className="press inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold text-gray-light transition-colors hover:border-white/30 hover:text-paper"
           >
             GitHub <span aria-hidden>↗</span>
           </a>
