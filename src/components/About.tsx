@@ -7,7 +7,7 @@ export function About() {
     <section id="about" className="border-t border-line py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange">About</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange">// 01 / About</p>
           <h2 className="font-display mt-3 max-w-2xl text-balance text-3xl font-bold leading-tight tracking-[-0.01em] sm:text-4xl">
             Design with purpose, build with rigor.
           </h2>

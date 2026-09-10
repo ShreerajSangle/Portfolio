@@ -6,6 +6,7 @@ import { FeaturedProjects } from "../components/FeaturedProjects";
 import { Hero } from "../components/Hero";
 import { MoreExperience } from "../components/MoreExperience";
 import { MoreWork } from "../components/MoreWork";
+import { QuickFacts } from "../components/QuickFacts";
 import { Skills } from "../components/Skills";
 import { useScrollToHash } from "../hooks/useScrollToHash";
 
@@ -15,6 +16,7 @@ export function Home() {
   return (
     <>
       <Hero />
+      <QuickFacts />
       <About />
       <FeaturedExperience />
       <MoreExperience />

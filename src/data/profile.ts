@@ -24,6 +24,16 @@ export const profile = {
   goal: "Actively job-searching across Data/BI Analyst and junior AI/ML Engineer roles — while building toward independent entrepreneurship in AI, sports, or agriculture technology, with an eventual return to India.",
 } as const;
 
+/** Quick facts strip — every value is directly backed by content elsewhere
+ * on the site (project count, internship count, the mental-health
+ * project's headline metric, and the MSc). No invented numbers. */
+export const quickFacts = [
+  { value: "6", label: "Projects shipped" },
+  { value: "3", label: "Internships completed" },
+  { value: "92.5%", label: "Best model accuracy" },
+  { value: "MSc AI", label: "National College of Ireland" },
+] as const;
+
 export type EducationItem = {
   school: string;
   location: string;
