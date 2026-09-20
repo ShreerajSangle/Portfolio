@@ -19,7 +19,7 @@ export const profile = {
     "Builds end-to-end AI and web products independently — from a real-time multimodal mental-health risk-detection system deployed with sub-200ms latency, to consumer-facing apps and interactive brand campaign websites — using Python, TypeScript/React, FastAPI, PostgreSQL/Supabase, and modern LLM APIs (OpenAI, Groq).",
 
   grounding:
-    "Grounded in real operational experience: currently working in retail operations at Lidl Ireland (customer service, stock/inventory, KPI and business-planning input), with prior experience in data reporting internships across BFSI, pharma, and retail client accounts, and a freelance stint managing social media partnerships and sponsorship negotiation.",
+    "Grounded in real operational experience: currently working as a Retail Analyst at Lidl Ireland (weekly KPI/trading analysis, workforce planning input, and annual business-planning contributions), with prior experience in data reporting internships across BFSI, pharma, and retail client accounts, and a freelance stint managing social media partnerships and sponsorship negotiation.",
 
   goal: "Actively job-searching across Data/BI Analyst and junior AI/ML Engineer roles — while building toward independent entrepreneurship in AI, sports, or agriculture technology, with an eventual return to India.",
 } as const;
@@ -256,6 +256,7 @@ export type ExperienceItem = {
   role: string;
   period: string;
   bullets: string[];
+  featured?: boolean;
 };
 
 export const experience: ExperienceItem[] = [
@@ -264,6 +265,7 @@ export const experience: ExperienceItem[] = [
     location: "Mumbai, India",
     role: "Data Analyst (Intern)",
     period: "Jan 2024 – Jun 2024",
+    featured: true,
     bullets: [
       "Pulled and consolidated records from CRM systems and offline sources (spreadsheet exports, flat files) across BFSI, pharma, and retail client accounts, building a repeatable extraction process for recurring reporting cycles.",
       "Used Power Query and Excel to standardise inconsistent field formats, deduplicate overlapping records, and reconcile mismatched entries across multiple source systems before reporting.",
@@ -278,6 +280,7 @@ export const experience: ExperienceItem[] = [
     location: "Khopoli, Maharashtra",
     role: "Software Developer (Intern)",
     period: "May 2023 – Oct 2023",
+    featured: true,
     bullets: [
       "Built REST API endpoints using FastAPI to expose sensor data and application logic to the frontend and to third-party integration partners.",
       "Integrated a React frontend with backend APIs to surface industrial sensor data in a usable interface for internal and partner use.",
@@ -292,6 +295,7 @@ export const experience: ExperienceItem[] = [
     location: "Mumbai, India",
     role: "Data Science (Intern)",
     period: "Jun 2022 – Aug 2022",
+    featured: true,
     bullets: [
       "Trained and evaluated 3 supervised models (Logistic Regression, Random Forest, SVM) in scikit-learn on datasets of 10K–50K records, reaching up to 88% test accuracy.",
       "Performed end-to-end EDA in Python (Pandas, Seaborn) covering feature engineering, outlier detection, and correlation analysis, lowering model training error by 15%.",
@@ -321,13 +325,14 @@ export const experience: ExperienceItem[] = [
   {
     company: "Lidl Ireland",
     location: "Bray, Ireland",
-    role: "Retail Team Member (part-time)",
+    role: "Retail Analyst",
     period: "2024/2025 – Present",
+    featured: true,
     bullets: [
-      "Deliver customer service and complaint resolution on a high-volume shop floor within a 6–7 colleague team, escalating where needed to Duty/Deputy Managers.",
-      "Operate tills and perform cash-management checks; support goods-in, warehouse pallet organisation, replenishment, and stock rotation with use-by-date and merchandising compliance.",
-      "Support store refurbishments, new openings/re-openings, and provide input into annual business planning around KPI targets and staffing.",
-      "Acted as store responsible person on shift — managing staff, overseeing reductions and backstock, and running the till.",
+      "Analyse weekly store KPI and trading reports against performance targets, identifying variances and interpreting their significance to provide store management with relevant insights for operational reviews and planning discussions.",
+      "Support workforce planning for a 6–7-person team, contributing staffing input alongside management and drawing on trading performance and frontline operational requirements to inform day-to-day staffing discussions.",
+      "Contribute to annual business planning by reviewing store performance findings with the management team, helping connect weekly trading results and target variances with longer-term operational priorities and staffing considerations.",
+      "Collaborate with store management to interpret KPI findings in the context of daily retail operations, contributing frontline observations to discussions about performance gaps and operational needs to support data-informed decision-making.",
     ],
   },
 ];

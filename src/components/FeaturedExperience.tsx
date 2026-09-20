@@ -1,7 +1,7 @@
 import { accentGradients, experience } from "../data/profile";
 import { Reveal } from "./Reveal";
 
-const internships = experience.filter((e) => e.role.toLowerCase().includes("intern"));
+const featuredExperience = experience.filter((e) => e.featured);
 
 export function FeaturedExperience() {
   return (
@@ -10,12 +10,12 @@ export function FeaturedExperience() {
         <Reveal className="max-w-2xl">
           <p className="font-mono text-label font-semibold uppercase text-orange">// 02 / Experience</p>
           <h2 className="font-display text-h2 mt-3 text-balance font-bold">
-            Grounded in real internship work.
+            Grounded in real operational and analytical work.
           </h2>
         </Reveal>
 
         <div className="mt-14 space-y-6">
-          {internships.map((e, i) => (
+          {featuredExperience.map((e, i) => (
             <Reveal
               key={e.company}
               delay={i * 60}

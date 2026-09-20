@@ -1,7 +1,7 @@
 import { experience } from "../data/profile";
 import { Reveal } from "./Reveal";
 
-const rest = experience.filter((e) => !e.role.toLowerCase().includes("intern"));
+const rest = experience.filter((e) => !e.featured);
 
 export function MoreExperience() {
   if (rest.length === 0) return null;
